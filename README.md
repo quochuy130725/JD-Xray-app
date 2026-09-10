@@ -24,7 +24,7 @@ Simulating a realistic job board interface, **CAREER X-RAY** empowers users to a
 
 ## 🏗️ System Architecture & Production Workflow
 
-When **CAREER X-RAY** transitions to a live production environment, the platform operates through two primary execution workflows:
+When **JD X-RAY** transitions to a live production environment, the platform operates through two primary execution workflows:
 
 ```text
 [ FRONTEND (REACT) ]
