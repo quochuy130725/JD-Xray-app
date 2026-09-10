@@ -1,4 +1,4 @@
-# 📡 JD X-RAY
+# 📡 JD X-RAY - UNESCO YOUTH HACKATHON 2026
 
 > **Decode the JD. Unmask the trap.**
 > *An Interactive Web-App Educational Toolkit for Job Scam & Botnet Seeding Detection (Global MIL Educational Edition).*
