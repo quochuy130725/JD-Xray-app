@@ -26,7 +26,11 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Routes
-app.get('/api/health', (req, res) => res.json({ status: 'CAREER X-RAY Server Ready' }));
+// Root health check (Ngăn cold start trên Render/UptimeRobot)
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
+app.get('/api/health', (req, res) => res.json({ status: 'JD X-RAY Server Ready' }));
 app.get('/api/cases', getCases);
 app.post('/api/analyze', analyzeCustomJD);
 app.use('/api/scan', scanRoutes);
@@ -35,4 +39,4 @@ app.use('/api/scan', scanRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => logger.info(`🚀 CAREER X-RAY Server running on port ${PORT}`));
+app.listen(PORT, () => logger.info(`🚀 JD X-RAY Server running on port ${PORT}`));
