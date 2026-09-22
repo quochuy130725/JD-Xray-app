@@ -154,11 +154,18 @@ const CustomInspector = ({ lang = 'en', onAnalyzeSuccess }) => {
         body: JSON.stringify({ jdText, imageBase64, mimeType, lang })
       });
 
+      let data;
       if (!res.ok) {
-        throw new Error(`Server returned status ${res.status}`);
+        let errMsg = `Server returned status ${res.status}`;
+        try {
+          const errData = await res.json();
+          if (errData.message) errMsg = errData.message;
+          else if (errData.error) errMsg = errData.error;
+        } catch(e) {}
+        throw new Error(errMsg);
+      } else {
+        data = await res.json();
       }
-
-      const data = await res.json();
 
       if (data && data.success && data.data) {
         // --- Rule F: Handle Explicit Non-HR Rejection Flag from Gemini ---
